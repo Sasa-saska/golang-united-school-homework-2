@@ -2,6 +2,12 @@ package square
 
 import "math"
 
+type cusint int
+
+const SidesTriangle = 3
+const SidesSquare = 4
+const SidesCircle = 0
+
 // Define custom int type to hold sides number and update CalcSquare signature by replacing #yourTypeNameHere#
 
 // Define constants to represent 0, 3 and 4 sides.  Test uses mnemos: SidesTriangle(==3), SidesSquare(==4), SidesCircle(==0)
@@ -10,12 +16,13 @@ import "math"
 // CalcSquare(10.0, SidesSquare)
 // CalcSquare(10.0, SidesCircle)
 
-func CalcSquare(sideLen float64, sidesNum string) float64 {
-	if sidesNum == "SidesCircle" {
+func CalcSquare(sideLen float64, sidesNum cusint) float64 {
+
+	if sidesNum == 0 {
 		return math.Pi * (sideLen * sideLen)
-	} else if sidesNum == "SidesTriangle" {
+	} else if sidesNum == 3 {
 		return (sideLen * sideLen) / 2
-	} else if sidesNum == "SidesSquare" {
+	} else if sidesNum == 4 {
 		return sideLen * sideLen
 	} else {
 		return 0
